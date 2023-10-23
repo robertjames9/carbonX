@@ -226,7 +226,7 @@ contract CarbonX is ReentrancyGuard, Ownable {
     }
 
     function getMatchingBonusPercentage(uint256 level) internal pure returns (uint256) {
-        if (level <= 5) {
+        if (level <= 10) {
             if (level == 1) return 7;
             if (level == 2) return 5;
             if (level == 3) return 3;
