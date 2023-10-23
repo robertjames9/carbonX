@@ -215,7 +215,7 @@ contract CarbonX is ReentrancyGuard, Ownable {
             sponsorID = userData[sponsorID].sponsor;
             if (sponsorID == 0) break;
 
-            uint256 matchingBonusPercentage = getMatchingBonusPercentage(i + 1);  // 7%, 5%, 3%, 2%, 1% for levels 1 to 5
+            uint256 matchingBonusPercentage = getMatchingBonusPercentage(i + 1);  // 7%, 5%, 3%, 2%, 1% for levels 1 to 10
             uint256 matchingBonus = amount.mul(matchingBonusPercentage).div(100);
             userData[sponsorID].userMatchingBonusReceived = userData[sponsorID].userMatchingBonusReceived.add(matchingBonus);
 
@@ -232,8 +232,13 @@ contract CarbonX is ReentrancyGuard, Ownable {
             if (level == 3) return 3;
             if (level == 4) return 2;
             if (level == 5) return 1;
+            if (level == 6) return 1;
+            if (level == 7) return 1;
+            if (level == 8) return 1;
+            if (level == 9) return 1;
+            if (level == 10) return 1;
         }
-        return 0; // No matching bonus beyond level 5
+        return 0; // No matching bonus beyond level 10
     }
 
     function updateProfitDistribution() external onlyOwner {
